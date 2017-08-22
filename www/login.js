@@ -1,0 +1,39 @@
+/**
+ * Created by tiedan on 2017/6/20.
+ */
+$(()=>{
+    //注册
+    $('#add').on('click',()=>{
+        $.ajax({
+            url:'/add',
+            data:{
+                username:$('#user').val(),
+                password:$('#password').val()
+            },
+            success(r){
+                if (!r.err){
+                    alert('注册成功');
+                }else{
+                    alert(r.msg);
+                }
+            }
+        })
+    });
+    //登陆
+    $('#login').on('click',()=>{
+        $.ajax({
+            url:'/login',
+            data:{
+                username:$('#user').val(),
+                password:$('#password').val()
+            },
+            success(r){
+                if (!r.err){
+                    alert('登陆成功');
+                }else{
+                    alert(r.msg);
+                }
+            }
+        })
+    })
+});
